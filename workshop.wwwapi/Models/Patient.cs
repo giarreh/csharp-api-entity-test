@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data;
 
 namespace workshop.wwwapi.Models
 {
@@ -11,8 +10,12 @@ namespace workshop.wwwapi.Models
         [Key]
         [Column("id")]
         public int Id { get; set; }
-        [Required]
+
         [Column("fullname")]
         public string FullName { get; set; }
+
+        [Column("booking")]
+        public List<Appointment> Appointments { get; set; }
+
     }
 }

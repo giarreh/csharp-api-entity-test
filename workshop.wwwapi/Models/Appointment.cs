@@ -8,27 +8,15 @@ namespace workshop.wwwapi.Models
     [Table("Appointments")]
     public class Appointment
     {
-        [Key]
-        [Column("id")]
-        public int Id { get; set; }
+        [ForeignKey("Doctor")]
+        [Column(Order = 1)]
+        public int DoctorId { get; set; }
 
-        [Required]
+        [ForeignKey("Patient")]
+        [Column(Order = 2)]
+        public int PatientId { get; set; }
+
         [Column("datetime")]
         public DateTime Booking { get; set; }
-
-        [Required]
-        [ForeignKey("Doctor")]
-        [Column("doctor_id")]
-        public int DoctorId { get; set; }
-        public Doctor Doctor { get; set; }
-
-        [Required]
-        [ForeignKey("Patient")]
-        [Column("patient_id")]
-        public int PatientId { get; set; }
-        Patient Patient { get; set; }
-
-
-
     }
 }
