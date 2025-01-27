@@ -23,7 +23,7 @@ namespace workshop.wwwapi.Repository
 
         public async Task<Doctor> GetDoctorById(int id)
         {
-            return await _databaseContext.Doctors.FirstAsync(d => d.Id == id);
+            return await _databaseContext.Doctors.FirstOrDefaultAsync(d => d.Id == id);
         }
 
         public async Task<IEnumerable<Appointment>> GetAppointmentsByDoctor(int id)
@@ -63,6 +63,13 @@ namespace workshop.wwwapi.Repository
             await _databaseContext.AddAsync(patient);
             await _databaseContext.SaveChangesAsync();
             return patient;
+        }
+
+        public async Task<Doctor> AddDoctor(Doctor doctor)
+        {
+            await _databaseContext.AddAsync(doctor);
+            await _databaseContext.SaveChangesAsync();
+            return doctor;
         }
     }
 }

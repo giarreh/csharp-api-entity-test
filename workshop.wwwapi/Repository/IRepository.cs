@@ -8,6 +8,8 @@ namespace workshop.wwwapi.Repository
         Task<IEnumerable<Patient>> GetPatients();
         Task<Patient> GetPatientById(int id);
         Task<Patient> AddPatient(Patient patient);
+        Task<Doctor> AddDoctor(Doctor doctor);
+
 
         Task<IEnumerable<Doctor>> GetDoctors();
         Task<Doctor> GetDoctorById(int id);
